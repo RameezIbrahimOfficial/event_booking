@@ -6,6 +6,6 @@ const EventSchema = new mongoose.Schema({
     date: { type: Date, required: true },
     venue: { type: String, required: true },
     available_ticket: { type: Number, required: true }
-},{ timestamps: true })
+}, { timestamps: true })
 
 module.exports = mongoose.model('Event', EventSchema)

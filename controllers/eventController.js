@@ -27,7 +27,7 @@ const getEvent = asyncHandler(async (req, res) => {
     const user = req.user;
     const { eventId } = req.params
 
-    const event = await eventModel.findOne({_id: eventId})
+    const event = await eventModel.findOne({ _id: eventId })
     res.status(200).json({
         status: "success",
         data: event
@@ -40,35 +40,35 @@ const getEvent = asyncHandler(async (req, res) => {
 // @access Private
 const registerEvent = asyncHandler(async (req, res) => {
     const userEmail = req.user
-    const {eventId} = req.params;
+    const { eventId } = req.params;
 
     const user = await userModel.findOne({ email: userEmail.email })
 
-    const event = await eventModel.findOne({_id: eventId})
+    const event = await eventModel.findOne({ _id: eventId })
 
-    if(!event) {
+    if (!event) {
         res.status(404).json({ message: "Event not Found" })
     }
 
-    if(event.available_ticket == 0) {
+    if (event.available_ticket == 0) {
         res.status(400).json({ message: "No Ticket Available for this event" })
     }
 
     console.log(event);
 
-    await eventModel.updateOne({_id: eventId},{
+    await eventModel.updateOne({ _id: eventId }, {
         available_ticket: event.available_ticket - 1
-    })    
+    })
 
     const userEvents = await userEventModel.findOne({ email: userEmail })
-    if(!userEvents) {
+    if (!userEvents) {
         await userEventModel.create({
             userId: user._id,
-            booked_events: [{eventId: event._id}]
+            booked_events: [{ eventId: event._id }]
         })
     } else {
-        await userEventModel.updateOne({userId: user._id}, {
-            $push: { booked_events: { eventId: event._id }  }
+        await userEventModel.updateOne({ userId: user._id }, {
+            $push: { booked_events: { eventId: event._id } }
         })
     }
 
@@ -105,7 +105,7 @@ const createEvent = asyncHandler(async (req, res) => {
     const { name, date, venue, available_ticket } = req.body
     const user = req.user;
 
-    if(!name || !date || !venue || !available_ticket){
+    if (!name || !date || !venue || !available_ticket) {
         res.status(400).json({ message: 'All fields are required' })
     }
 
