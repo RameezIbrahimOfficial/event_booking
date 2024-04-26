@@ -83,6 +83,7 @@ const registerEvent = asyncHandler(async (req, res) => {
 const getUserEvent = asyncHandler(async (req, res) => {
     const userEmail = req.user;
     const user = await userModel.findOne({ email: userEmail.email })
+    
 
     const events = await userEventModel.find({ userId: user._id }).populate({
         path: 'userId',
