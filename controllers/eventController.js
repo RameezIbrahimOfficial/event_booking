@@ -44,7 +44,7 @@ const registerEvent = asyncHandler(async (req, res) => {
 
     const user = await userModel.findOne({ email: userEmail.email })
 
-    const event = eventModel.findOne({_id: eventId})
+    const event = await eventModel.findOne({_id: eventId})
 
     if(!event) {
         res.status(404).json({ message: "Event not Found" })
@@ -82,7 +82,7 @@ const registerEvent = asyncHandler(async (req, res) => {
 // @access Private 
 const getUserEvent = asyncHandler(async (req, res) => {
     const userEmail = req.user;
-    const user = userModel.findOne({ email: userEmail })
+    const user = await userModel.findOne({ email: userEmail.email })
 
     const events = await userEventModel.find({ userId: user._id }).populate({
         path: 'userId',
