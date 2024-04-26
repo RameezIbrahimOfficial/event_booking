@@ -1,5 +1,6 @@
 ## This a Backend for Event Booking Done Using NodeJS, Express and MongoDB 
- 
+
+# You can test the API using Postman or Swagger on Any other API testing Tool
 
 # To Start Using 
 
