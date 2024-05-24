@@ -1,20 +1,52 @@
-# This a Backend for Event Booking Done Using NodeJS, Express and MongoDB 
+# Event Booking Backend
 
-## You can test the API using Postman or Swagger on Any other API testing Tool
+This repository contains a backend for an event booking application built using Node.js, Express, and MongoDB.
 
-### To Start Using 
+## Getting Started
 
-### 1. Clone this Repository 
-git clone "repo url"
+You can test the API using Postman, Swagger, or any other API testing tool.
 
-### 2. install dependencies
-Navigate to folder
-npm i --legacy-peer-deps
+### Prerequisites
 
-### 3. rename .sample.env to .env
-replace contents inside .env
+Make sure you have the following installed:
+- Node.js
+- npm (Node Package Manager)
+- MongoDB
 
-### run the server by typing 
-npm start
+### Installation
 
-### Thankyou
+1. **Clone the Repository**
+    ```sh
+    git clone "https://github.com/RameezIbrahimOfficial/event_booking.git"
+    ```
+
+2. **Install Dependencies**
+    Navigate to the project folder and install the dependencies:
+    ```sh
+    npm i --legacy-peer-deps
+    ```
+
+3. **Setup Environment Variables**
+    Rename `.sample.env` to `.env` and replace the contents with your configuration.
+
+4. **Run the Server**
+    Start the server by typing:
+    ```sh
+    npm start
+    ```
+
+## Usage
+
+Once the server is running, you can use API testing tools like Postman or Swagger to interact with the endpoints.
+
+## Contributing
+
+If you want to contribute to this project, feel free to fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+Thank you for using our Event Booking Backend!
